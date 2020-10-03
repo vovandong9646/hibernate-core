@@ -5,7 +5,7 @@
 <hibernate-configuration>
   <session-factory>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hibernate_core01</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/db_app</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password"></property>
     <!-- Connection Pool Size -->
@@ -18,11 +18,8 @@
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.format_sql">true</property>
 
-    <!-- Dialect is required to let Hibernate know the Database Type, MySQL, 
-      Oracle etc Hibernate 4 automatically figure out Dialect from Database Connection 
-      Metadata -->
-    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
 
-    <mapping class="hibernate.model.EmployeeAnotation" />
+    <mapping class="hibernate.model.Product" />
   </session-factory>
 </hibernate-configuration>

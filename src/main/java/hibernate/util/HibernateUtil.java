@@ -6,20 +6,19 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
 public class HibernateUtil {
-    
+
     private static SessionFactory sessionFactory;
-    
+
     private static SessionFactory buildSessionFactory() {
         Configuration config = new Configuration();
-        config.configure("hibernate_xml.cfg.xml");
-        ServiceRegistry service = new StandardServiceRegistryBuilder()
+        config.configure("hibernate.cfg.xml");
+        ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                 .applySettings(config.getProperties()).build();
-        SessionFactory sessionFactory = config.buildSessionFactory(service);
-        return sessionFactory;
+        return config.buildSessionFactory(serviceRegistry);
     }
 
     public static SessionFactory getSessionFactory() {
-        if(sessionFactory == null) {
+        if (sessionFactory == null) {
             sessionFactory = buildSessionFactory();
         }
         return sessionFactory;
